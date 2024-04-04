@@ -32,7 +32,7 @@ RUN /tmp/build-scripts/install-vpn-gui.sh
 
 COPY ./docker-root /
 
-COPY --from=hagb/docker-easyconnect:build /results/fake-hwaddr/ /results/tinyproxy-ws/ /results/novnc/ /
+COPY --from=kuhsinyv/docker-easyconnect:build /results/fake-hwaddr/ /results/tinyproxy-ws/ /results/novnc/ /
 
 #ENV TYPE="" PASSWORD="" LOOP=""
 #ENV DISPLAY

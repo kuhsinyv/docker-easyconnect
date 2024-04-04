@@ -66,7 +66,7 @@ start_danted() {
 		ip tuntap del mode tun $VPN_TUN
 	else
 		echo 'Failed to create tun interface! Please check whether /dev/net/tun is available.' >&2
-		echo 'Also refer to https://github.com/Hagb/docker-easyconnect/blob/master/doc/faq.md.' >&2
+		echo 'Also refer to https://github.com/kuhsinyv/docker-easyconnect/blob/master/doc/faq.md.' >&2
 		exit 1
 	fi
 }
@@ -106,7 +106,7 @@ init_vpn_config() {
 
 	if [ "EC_GUI" = "$_VPN_TYPE" ]; then
 		# 登录信息持久化处理
-		## 持久化配置文件夹 感谢 @hexid26 https://github.com/Hagb/docker-easyconnect/issues/21
+		## 持久化配置文件夹 感谢 @hexid26 https://github.com/kuhsinyv/docker-easyconnect/issues/21
 		cp -r /usr/share/sangfor/EasyConnect/resources/conf_backup/. ~/conf/
 		rm -f ~/conf/ECDomainFile
 		[ -e ~/easy_connect.json ] && mv ~/easy_connect.json ~/conf/easy_connect.json # 向下兼容
@@ -160,7 +160,7 @@ start_tigervncserver() {
 	[ -z "$CLIP_TEXT" ] && CLIP_TEXT="$ECPASSWORD"
 
 	# 将 easyconnect 的密码放入粘贴板中，应对密码复杂且无法保存的情况 (eg: 需要短信验证登录)
-	# 感谢 @yakumioto https://github.com/Hagb/docker-easyconnect/pull/8
+	# 感谢 @yakumioto https://github.com/kuhsinyv/docker-easyconnect/pull/8
 	echo "$CLIP_TEXT" | DISPLAY=:1 xclip -selection c
 
 	# 环境变量USE_NOVNC不为空时，启动 easy-novnc
@@ -178,12 +178,12 @@ keep_pinging() {
 }
 
 # container 再次运行时清除 /tmp 中的锁，使 container 能够反复使用。
-# 感谢 @skychan https://github.com/Hagb/docker-easyconnect/issues/4#issuecomment-660842149
+# 感谢 @skychan https://github.com/kuhsinyv/docker-easyconnect/issues/4#issuecomment-660842149
 for f in /tmp/* /tmp/.*; do
 	[ "/tmp/.X11-unix" != "$f" ] && rm -rf -- "$f"
 done
 
-ulimit -n 1048576 # https://github.com/Hagb/docker-easyconnect/issues/245 @rikaunite
+ulimit -n 1048576 # https://github.com/kuhsinyv/docker-easyconnect/issues/245 @rikaunite
 forward_ports &
 start_danted &
 start_tinyproxy &

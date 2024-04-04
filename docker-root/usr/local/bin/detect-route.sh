@@ -23,7 +23,7 @@ else
 	echo 'open_port() { true; }'
 	echo 'close_port() { true; }'
 	echo "Can't find available method to automatically set route for opening ports"\
-	     "(refer to https://github.com/Hagb/docker-easyconnect/tree/master/doc/route.md)" >&2
+	     "(refer to https://github.com/kuhsinyv/docker-easyconnect/tree/master/doc/route.md)" >&2
 
 fi
 ip rule del iif lo sport 1080 table 2

@@ -16,10 +16,10 @@ docker exec 容器名 busybox ifconfig
 
 ```
 Failed to create tun interface! Please check whether /dev/net/tun is available.
-Also refer to https://github.com/Hagb/docker-easyconnect/blob/master/doc/faq.md.
+Also refer to https://github.com/kuhsinyv/docker-easyconnect/blob/master/doc/faq.md.
 ```
 
-若有，请参照[下一个问题](#user-content-启动容器时输出-docker-error-response-from-daemon-error-gathering-device-information-while-adding-custom-device-devnettun-no-such-file-or-directory-或-failed-to-create-tun-interface)解决；若无，可提交 [issue](https://github.com/Hagb/docker-easyconnect/issues) 中反馈。
+若有，请参照[下一个问题](#user-content-启动容器时输出-docker-error-response-from-daemon-error-gathering-device-information-while-adding-custom-device-devnettun-no-such-file-or-directory-或-failed-to-create-tun-interface)解决；若无，可提交 [issue](https://github.com/kuhsinyv/docker-easyconnect/issues) 中反馈。
 
 ## 启动容器时输出 `docker: Error response from daemon: error gathering device information while adding custom device "/dev/net/tun": no such file or directory.` 或 `Failed to create tun interface!`
 
@@ -51,7 +51,7 @@ sudo modprobe tun
 
 ## EasyConnect GUI 版登录失败，界面上提示 `The EasyConnect version is too low`（7.6.3）或 `The client version and server software version is not matching`（7.6.7）.
 
-这是深信服对 EasyConnect 进行了更新，使得客户端的第四级版本号与服务端不匹配所致。X86/amd64 架构重新构建镜像（不使用旧镜像的缓存）即可更新到最新版的 EasyConnect。遇到此问题请在 [#274](https://github.com/Hagb/docker-easyconnect/issues/274) 中向维护者反馈，以便维护者重新构建并上传镜像。
+这是深信服对 EasyConnect 进行了更新，使得客户端的第四级版本号与服务端不匹配所致。X86/amd64 架构重新构建镜像（不使用旧镜像的缓存）即可更新到最新版的 EasyConnect。遇到此问题请在 [#274](https://github.com/kuhsinyv/docker-easyconnect/issues/274) 中向维护者反馈，以便维护者重新构建并上传镜像。
 
 也可以用 `-e DISABLE_PKG_VERSION_XML=1` 参数绕过版本检测从而正常使用，但这也可能会错过深信服发布的安全更新，存在潜在的安全隐患。Arm64、mips64el 架构的 EasyConnect 原生客户端已经不再更新，因此只能配合 `-e DISABLE_PKG_VERSION_XML=1` 参数来使用。
 

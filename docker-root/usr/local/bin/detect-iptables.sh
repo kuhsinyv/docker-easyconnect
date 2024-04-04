@@ -1,6 +1,6 @@
 #!/bin/bash
 # 不支持 nftables 时使用 iptables-legacy
-## 感谢 @BoringCat https://github.com/Hagb/docker-easyconnect/issues/5
+## 感谢 @BoringCat https://github.com/kuhsinyv/docker-easyconnect/issues/5
 if {
 	[ -z "$IPTABLES_LEGACY" -a -z "$(xtables-legacy-multi iptables-save)" ] &&
 	xtables-nft-multi iptables-save &&

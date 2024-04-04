@@ -26,7 +26,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 容
 - 使用 [`nftables`](https://netfilter.org/projects/nftables/)。可通过在宿主机运行 `sudo iptables -V | grep nf_tables` 的输出是否为空来判断（非空则表明在使用 `nftables`）。
 - `iptable_mangle` 和 `xt_mark` 模块被编译进内核或作为模块加载加载。
 
-运行容器时若输出 `Can't find available method to automatically set route for opening ports (refer to https://github.com/Hagb/docker-easyconnect/tree/master/doc/ports.md)` 字样的报错，则说明不满足以上条件。
+运行容器时若输出 `Can't find available method to automatically set route for opening ports (refer to https://github.com/kuhsinyv/docker-easyconnect/tree/master/doc/ports.md)` 字样的报错，则说明不满足以上条件。
 
 群辉系统可通过宿主机加载 `iptable_mangle` 和 `xt_mark` 模块来解决：
 ```bash

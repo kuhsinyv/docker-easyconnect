@@ -162,7 +162,7 @@ EasyConnect 客户端大致有以下三种版本
 
 ``` bash
 touch ~/.easyconn
-docker run --rm --device /dev/net/tun --cap-add NET_ADMIN -ti -v $HOME/.easyconn:/root/.easyconn -e EC_VER=7.6.7 -e EXIT=1 -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 hagb/docker-easyconnect:cli
+docker run --rm --device /dev/net/tun --cap-add NET_ADMIN -ti -v $HOME/.easyconn:/root/.easyconn -e EC_VER=7.6.7 -e EXIT=1 -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 kuhsinyv/docker-easyconnect:cli
 ```
 
 ### X11 socket
@@ -171,7 +171,7 @@ docker run --rm --device /dev/net/tun --cap-add NET_ADMIN -ti -v $HOME/.easyconn
 
 ``` bash
 xhost +LOCAL:root
-docker run --rm --device /dev/net/tun --cap-add NET_ADMIN -ti -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/root/.Xauthority -e EXIT=1 -e DISPLAY=$DISPLAY -e URLWIN=1 -e TYPE=x11 -v $HOME/.ecdata:/root -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 hagb/docker-easyconnect:vncless
+docker run --rm --device /dev/net/tun --cap-add NET_ADMIN -ti -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/.Xauthority:/root/.Xauthority -e EXIT=1 -e DISPLAY=$DISPLAY -e URLWIN=1 -e TYPE=x11 -v $HOME/.ecdata:/root -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 kuhsinyv/docker-easyconnect:vncless
 xhost -LOCAL:root
 ```
 
@@ -180,6 +180,6 @@ xhost -LOCAL:root
 客户端退出会自动重启，VNC 服务器在`127.0.0.1:5901`（`-p 127.0.0.1:5901:5901`），密码为`xxxx`（`-e PASSWORD=xxxx`）。
 
 ``` bash
-docker run --rm --device /dev/net/tun --cap-add NET_ADMIN -ti -e PASSWORD=xxxx -v $HOME/.ecdata:/root -p 127.0.0.1:5901:5901 -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 hagb/docker-easyconnect
+docker run --rm --device /dev/net/tun --cap-add NET_ADMIN -ti -e PASSWORD=xxxx -v $HOME/.ecdata:/root -p 127.0.0.1:5901:5901 -p 127.0.0.1:1080:1080 -p 127.0.0.1:8888:8888 kuhsinyv/docker-easyconnect
 ```
 

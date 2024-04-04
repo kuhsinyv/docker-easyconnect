@@ -22,7 +22,7 @@
 - `EC_CLI_URL`（仅适用于命令行版）: [@shmilee](https://github.com/shmilee) 提供的命令行 `7.6.8` 版 deb 包的下载地址，默认为 `https://github.com/shmilee/scripts/releases/download/v0.0.1/easyconn_7.6.8.2-ubuntu_amd64.deb`
 - `MIRROR_URL`: Debian 镜像站，默认为 <http://ftp.cn.debian.org/debian/>，设为空则使用默认镜像站
 - `USE_EC_ELECTRON`（仅适用于图形界面版）: 默认为空，是否使用来自 EasyConnect 的 electron，不为空时使用来自 EasyConnect 的 electron.
-- `VPN_DEB_PATH`（仅适用于图形界面版）: 默认为空。非空时表示 `VPN_URL` 是一个 zip 包的地址（见<https://github.com/Hagb/docker-easyconnect/issues/25#issuecomment-1233369467>），而 `VPN_DEB_PATH` 则是 zip 包中的 deb 包的路径。
+- `VPN_DEB_PATH`（仅适用于图形界面版）: 默认为空。非空时表示 `VPN_URL` 是一个 zip 包的地址（见<https://github.com/kuhsinyv/docker-easyconnect/issues/25#issuecomment-1233369467>），而 `VPN_DEB_PATH` 则是 zip 包中的 deb 包的路径。
 - **`VPN_TYPE`**：默认为 `EC_GUI`。构建 aTrust 镜像时，需要将该参数设为 `ATRUST`。
 - **`VPN_URL`**（仅适用于图形界面版）: EasyConnect 的 deb 包下载地址（`VPN_DEB_PATH` 非空时则是包含 deb 包的 zip 包下载地址），各版本的下载地址可见于 [../build-args/](../build-args/)。
 
@@ -42,27 +42,27 @@
 ### 纯命令行
 
 ``` bash
-git clone https://github.com/hagb/docker-easyconnect.git
+git clone https://github.com/kuhsinyv/docker-easyconnect.git
 cd docker-easyconnect
-docker image build -f Dockerfile.build -t hagb/docker-easyconnect:build --build-arg EC_HOST=amd64 .
-docker image build --tag hagb/docker-easyconnect -f Dockerfile.cli --build-arg EC_HOST=amd64 .
+docker image build -f Dockerfile.build -t kuhsinyv/docker-easyconnect:build --build-arg EC_HOST=amd64 .
+docker image build --tag kuhsinyv/docker-easyconnect -f Dockerfile.cli --build-arg EC_HOST=amd64 .
 ```
 
 ### 带 VNC 服务端
 
 ``` bash
-git clone https://github.com/hagb/docker-easyconnect.git
+git clone https://github.com/kuhsinyv/docker-easyconnect.git
 cd docker-easyconnect
-docker image build $(cat build-args/7.6.7-amd64.txt) -f Dockerfile.build -t hagb/docker-easyconnect:build .
-docker image build $(cat build-args/7.6.7-amd64.txt) --tag hagb/docker-easyconnect -f Dockerfile .
+docker image build $(cat build-args/7.6.7-amd64.txt) -f Dockerfile.build -t kuhsinyv/docker-easyconnect:build .
+docker image build $(cat build-args/7.6.7-amd64.txt) --tag kuhsinyv/docker-easyconnect -f Dockerfile .
 ```
 
 ### 使用 X11 socket 而无 VNC 服务端
 
 ``` bash
-git clone https://github.com/hagb/docker-easyconnect.git
+git clone https://github.com/kuhsinyv/docker-easyconnect.git
 cd docker-easyconnect
-docker image build $(cat build-args/7.6.7-amd64.txt) -f Dockerfile.build -t hagb/docker-easyconnect:build .
-docker image build $(cat build-args/7.6.7-amd64.txt) --tag hagb/docker-easyconnect -f Dockerfile.vncless .
+docker image build $(cat build-args/7.6.7-amd64.txt) -f Dockerfile.build -t kuhsinyv/docker-easyconnect:build .
+docker image build $(cat build-args/7.6.7-amd64.txt) --tag kuhsinyv/docker-easyconnect -f Dockerfile.vncless .
 ```
 
